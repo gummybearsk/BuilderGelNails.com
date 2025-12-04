@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArticleLayout } from '@/components';
-import { getPostBySlug, getAllPosts, getPostContentComponent } from '@/lib/posts';
+import { getAllPosts, getPostBySlug, getPostContentComponent } from '@/lib/posts';
 
 interface PageProps {
   params: { slug: string };
@@ -9,11 +9,11 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = params;
-  const post = await getPostBySlug('problems', slug);
+  const post = await getPostBySlug('comparisons', slug);
 
   if (!post) {
     return {
-      title: 'Article Not Found',
+      title: 'Comparison Not Found',
     };
   }
 
@@ -34,16 +34,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export async function generateStaticParams() {
   const posts = await getAllPosts();
   return posts
-    .filter((post) => post.category === 'problems')
+    .filter((post) => post.category === 'comparisons')
     .map((post) => ({
       slug: post.slug,
     }));
 }
 
-export default async function ProblemsPage({ params }: PageProps) {
+export default async function ComparisonPage({ params }: PageProps) {
   const { slug } = params;
-  const post = await getPostBySlug('problems', slug);
-  const Content = await getPostContentComponent('problems', slug);
+  const post = await getPostBySlug('comparisons', slug);
+  const Content = await getPostContentComponent('comparisons', slug);
 
   if (!post || !Content) {
     notFound();

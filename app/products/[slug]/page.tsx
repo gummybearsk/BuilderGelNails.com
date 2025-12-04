@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArticleLayout } from '@/components';
-import { getPostBySlug, getAllPosts } from '@/lib/posts';
+import { getPostBySlug, getAllPosts, getPostContentComponent } from '@/lib/posts';
 
 interface PageProps {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug } = params;
   const post = await getPostBySlug('products', slug);
 
   if (!post) {
@@ -40,31 +40,18 @@ export async function generateStaticParams() {
     }));
 }
 
-function PlaceholderContent({ excerpt, title }: { excerpt: string; title: string }) {
-  return (
-    <div className="prose prose-lg max-w-none">
-      <p className="lead">{excerpt}</p>
-      <div className="my-8 p-6 bg-secondary-50 rounded-xl text-center">
-        <p className="text-secondary-600 mb-0">
-          Full product review coming soon. This review will cover detailed
-          testing results for {title.toLowerCase()}.
-        </p>
-      </div>
-    </div>
-  );
-}
-
 export default async function ProductReviewPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { slug } = params;
   const post = await getPostBySlug('products', slug);
+  const Content = await getPostContentComponent('products', slug);
 
-  if (!post) {
+  if (!post || !Content) {
     notFound();
   }
 
   return (
     <ArticleLayout post={post} showAffiliate>
-      <PlaceholderContent excerpt={post.excerpt} title={post.title} />
+      <Content />
     </ArticleLayout>
   );
 }

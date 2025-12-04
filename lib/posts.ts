@@ -1,10 +1,18 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import type { ComponentType } from 'react';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 
-export type Category = 'guides' | 'how-to' | 'problems' | 'products' | 'blog';
+export type Category =
+  | 'guides'
+  | 'how-to'
+  | 'problems'
+  | 'products'
+  | 'comparisons'
+  | 'blog'
+  | 'about';
 
 export interface Post {
   slug: string;
@@ -104,7 +112,7 @@ export async function getPostBySlug(category: Category, slug: string): Promise<P
 }
 
 export async function getAllPosts(): Promise<Post[]> {
-  const categories: Category[] = ['guides', 'how-to', 'problems', 'products', 'blog'];
+  const categories: Category[] = ['guides', 'how-to', 'problems', 'products', 'comparisons', 'blog', 'about'];
   const allPosts: Post[] = [];
 
   for (const category of categories) {
@@ -123,14 +131,20 @@ export function getPostPath(post: Post): string;
 export function getPostPath(category: Category, slug: string): string;
 export function getPostPath(postOrCategory: Post | Category, slug?: string): string {
   if (typeof postOrCategory === 'string') {
+    if (postOrCategory === 'about') {
+      return '/about';
+    }
     return `/${postOrCategory}/${slug}`;
+  }
+  if (postOrCategory.category === 'about') {
+    return '/about';
   }
   return `/${postOrCategory.category}/${postOrCategory.slug}`;
 }
 
 // Find a post by slug across all categories (synchronous for components)
 export function findPostBySlug(slug: string): Post | null {
-  const categories: Category[] = ['guides', 'how-to', 'problems', 'products', 'blog'];
+  const categories: Category[] = ['guides', 'how-to', 'problems', 'products', 'comparisons', 'blog', 'about'];
 
   for (const category of categories) {
     const filePath = path.join(postsDirectory, category, `${slug}.mdx`);
@@ -162,4 +176,16 @@ export function findPostBySlug(slug: string): Post | null {
   }
 
   return null;
+}
+
+export async function getPostContentComponent(
+  category: Category,
+  slug: string
+): Promise<ComponentType | null> {
+  try {
+    const mdxModule = await import(`@/content/posts/${category}/${slug}.mdx`);
+    return mdxModule.default as ComponentType;
+  } catch {
+    return null;
+  }
 }

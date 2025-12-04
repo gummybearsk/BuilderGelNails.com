@@ -37,7 +37,9 @@ export function ArticleLayout({
     'how-to': 'How-To',
     problems: 'Problems',
     products: 'Products',
+    comparisons: 'Comparisons',
     blog: 'Blog',
+    about: 'About',
   };
 
   const breadcrumbs = [
