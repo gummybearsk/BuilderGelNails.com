@@ -86,40 +86,8 @@ export default async function BlogPage() {
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4 max-w-6xl">
           {posts.length > 0 ? (
-            <>
-              {/* Featured Post (first post) */}
-              {posts[0] && (
-                <article className="mb-12 bg-white rounded-2xl border border-secondary-200 overflow-hidden hover:shadow-xl transition-shadow">
-                  <div className="p-8">
-                    <span className="text-sm font-medium text-primary-600 mb-2 block">
-                      {posts[0].category?.toUpperCase() || 'FEATURED'}
-                    </span>
-                    <h2 className="text-2xl md:text-3xl font-bold text-secondary-900 mb-4 hover:text-primary-600 transition-colors">
-                      <Link href={`/${posts[0].category}/${posts[0].slug}`}>
-                        {posts[0].title}
-                      </Link>
-                    </h2>
-                    <p className="text-secondary-600 mb-6 line-clamp-3">
-                      {posts[0].excerpt}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-secondary-500">
-                        {posts[0].readTime}
-                      </span>
-                      <Link
-                        href={`/${posts[0].category}/${posts[0].slug}`}
-                        className="text-primary-600 font-medium hover:text-primary-700"
-                      >
-                        Read More →
-                      </Link>
-                    </div>
-                  </div>
-                </article>
-              )}
-
-              {/* Rest of posts */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {posts.slice(1).map((post) => (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {posts.map((post) => (
                   <article
                     key={post.slug}
                     className="bg-white rounded-xl border border-secondary-200 overflow-hidden hover:shadow-lg transition-shadow"
@@ -143,7 +111,6 @@ export default async function BlogPage() {
                   </article>
                 ))}
               </div>
-            </>
           ) : (
             /* Placeholder content */
             <div className="text-center py-16">
