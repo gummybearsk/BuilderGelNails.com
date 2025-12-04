@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Product, getProduct } from '@/lib/products';
 
 interface ProductCardProps {
@@ -12,24 +13,20 @@ export function ProductCard({ id, product: productProp }: ProductCardProps) {
     return null;
   }
 
+  const imageSrc = product.imageUrl || '/images/products/placeholder-product.svg';
+
   return (
     <div className="bg-white border border-secondary-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
       <div className="flex flex-col gap-4">
-        {/* Product Image Placeholder */}
-        <div className="w-full aspect-square bg-secondary-100 rounded-lg flex items-center justify-center">
-          <svg
-            className="w-12 h-12 text-secondary-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-            />
-          </svg>
+        {/* Product Image */}
+        <div className="w-full aspect-square bg-secondary-50 rounded-lg overflow-hidden border border-secondary-200">
+          <Image
+            src={imageSrc}
+            alt={product.name}
+            width={600}
+            height={600}
+            className="w-full h-full object-cover"
+          />
         </div>
 
         {/* Product Info */}
