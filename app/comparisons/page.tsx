@@ -45,9 +45,6 @@ export default async function ComparisonsPage() {
                   key={post.slug}
                   className="bg-white rounded-xl border border-secondary-200 overflow-hidden hover:shadow-lg transition-shadow"
                 >
-                  <div className="aspect-video bg-secondary-100 flex items-center justify-center">
-                    <span className="text-6xl">⚖️</span>
-                  </div>
                   <div className="p-6">
                     <h2 className="text-xl font-bold text-secondary-900 mb-2 hover:text-primary-600 transition-colors">
                       <Link href={`/comparisons/${post.slug}`}>{post.title}</Link>

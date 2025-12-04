@@ -91,44 +91,28 @@ export default async function BlogPage() {
               {/* Featured Post (first post) */}
               {posts[0] && (
                 <article className="mb-12 bg-white rounded-2xl border border-secondary-200 overflow-hidden hover:shadow-xl transition-shadow">
-                  <div className="grid md:grid-cols-2 gap-0">
-                    <div className="aspect-video md:aspect-auto bg-secondary-100 relative">
-                      {posts[0].coverImage ? (
-                        <Image
-                          src={posts[0].coverImage}
-                          alt={posts[0].title}
-                          fill
-                          className="object-cover"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <span className="text-8xl">💅</span>
-                        </div>
-                      )}
-                    </div>
-                    <div className="p-8 flex flex-col justify-center">
-                      <span className="text-sm font-medium text-primary-600 mb-2">
-                        {posts[0].category?.toUpperCase() || 'FEATURED'}
+                  <div className="p-8">
+                    <span className="text-sm font-medium text-primary-600 mb-2 block">
+                      {posts[0].category?.toUpperCase() || 'FEATURED'}
+                    </span>
+                    <h2 className="text-2xl md:text-3xl font-bold text-secondary-900 mb-4 hover:text-primary-600 transition-colors">
+                      <Link href={`/${posts[0].category}/${posts[0].slug}`}>
+                        {posts[0].title}
+                      </Link>
+                    </h2>
+                    <p className="text-secondary-600 mb-6 line-clamp-3">
+                      {posts[0].excerpt}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-secondary-500">
+                        {posts[0].readTime}
                       </span>
-                      <h2 className="text-2xl md:text-3xl font-bold text-secondary-900 mb-4 hover:text-primary-600 transition-colors">
-                        <Link href={`/${posts[0].category}/${posts[0].slug}`}>
-                          {posts[0].title}
-                        </Link>
-                      </h2>
-                      <p className="text-secondary-600 mb-6 line-clamp-3">
-                        {posts[0].excerpt}
-                      </p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-secondary-500">
-                          {posts[0].readTime}
-                        </span>
-                        <Link
-                          href={`/${posts[0].category}/${posts[0].slug}`}
-                          className="text-primary-600 font-medium hover:text-primary-700"
-                        >
-                          Read More →
-                        </Link>
-                      </div>
+                      <Link
+                        href={`/${posts[0].category}/${posts[0].slug}`}
+                        className="text-primary-600 font-medium hover:text-primary-700"
+                      >
+                        Read More →
+                      </Link>
                     </div>
                   </div>
                 </article>
@@ -141,20 +125,6 @@ export default async function BlogPage() {
                     key={post.slug}
                     className="bg-white rounded-xl border border-secondary-200 overflow-hidden hover:shadow-lg transition-shadow"
                   >
-                    <div className="aspect-video bg-secondary-100 relative">
-                      {post.coverImage ? (
-                        <Image
-                          src={post.coverImage}
-                          alt={post.title}
-                          fill
-                          className="object-cover"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <span className="text-5xl">✨</span>
-                        </div>
-                      )}
-                    </div>
                     <div className="p-6">
                       <span className="text-xs font-medium text-primary-600 mb-2 block">
                         {post.category?.toUpperCase()}

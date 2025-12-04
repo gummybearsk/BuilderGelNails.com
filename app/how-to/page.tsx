@@ -71,22 +71,17 @@ export default async function HowToPage() {
               {posts.map((post) => (
                 <article
                   key={post.slug}
-                  className="flex gap-6 p-6 bg-white rounded-xl border border-secondary-200 hover:shadow-lg transition-shadow"
+                  className="p-6 bg-white rounded-xl border border-secondary-200 hover:shadow-lg transition-shadow"
                 >
-                  <div className="flex-shrink-0 w-24 h-24 bg-accent-100 rounded-lg flex items-center justify-center">
-                    <span className="text-4xl">🎯</span>
-                  </div>
-                  <div className="flex-1">
-                    <h2 className="text-xl font-bold text-secondary-900 mb-2 hover:text-primary-600 transition-colors">
-                      <Link href={`/how-to/${post.slug}`}>{post.title}</Link>
-                    </h2>
-                    <p className="text-secondary-600 mb-3 line-clamp-2">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center gap-4 text-sm text-secondary-500">
-                      <span>{post.readTime}</span>
-                      {post.steps && <span>{post.steps} steps</span>}
-                    </div>
+                  <h2 className="text-xl font-bold text-secondary-900 mb-2 hover:text-primary-600 transition-colors">
+                    <Link href={`/how-to/${post.slug}`}>{post.title}</Link>
+                  </h2>
+                  <p className="text-secondary-600 mb-3 line-clamp-2">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center gap-4 text-sm text-secondary-500">
+                    <span>{post.readTime}</span>
+                    {post.steps && <span>{post.steps} steps</span>}
                   </div>
                 </article>
               ))}

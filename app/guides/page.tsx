@@ -48,20 +48,6 @@ export default async function GuidesPage() {
                   key={post.slug}
                   className="bg-white rounded-xl border border-secondary-200 overflow-hidden hover:shadow-lg transition-shadow"
                 >
-                  <div className="aspect-video bg-secondary-100 relative">
-                    {post.coverImage ? (
-                      <Image
-                        src={post.coverImage}
-                        alt={post.title}
-                        fill
-                        className="object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center">
-                        <span className="text-6xl">📖</span>
-                      </div>
-                    )}
-                  </div>
                   <div className="p-6">
                     <h2 className="text-xl font-bold text-secondary-900 mb-2 hover:text-primary-600 transition-colors">
                       <Link href={`/guides/${post.slug}`}>{post.title}</Link>
