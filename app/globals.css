@@ -6,21 +6,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
-  }
+  --background: #FAFAF9;
+  --foreground: #44403C;
 }
 
 body {
+  background-color: var(--background);
   color: var(--foreground);
-  background: var(--background);
   font-family: 'Inter', system-ui, sans-serif;
+  /* Subtle Grainy Texture Overlay */
+  background-image: radial-gradient(#E7E5E4 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 /* Typography */
@@ -28,23 +24,28 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', Georgia, serif;
 }
 
+/* Smooth Image Loading */
+img {
+  transition: opacity 0.5s ease-in-out;
+}
+
 /* Prose customization for MDX content */
 .prose {
-  --tw-prose-body: theme('colors.secondary.700');
-  --tw-prose-headings: theme('colors.secondary.900');
+  --tw-prose-body: theme('colors.stone.500');
+  --tw-prose-headings: theme('colors.stone.700');
   --tw-prose-links: theme('colors.primary.600');
-  --tw-prose-bold: theme('colors.secondary.900');
-  --tw-prose-counters: theme('colors.secondary.500');
-  --tw-prose-bullets: theme('colors.secondary.400');
-  --tw-prose-hr: theme('colors.secondary.200');
-  --tw-prose-quotes: theme('colors.secondary.700');
+  --tw-prose-bold: theme('colors.stone.700');
+  --tw-prose-counters: theme('colors.stone.500');
+  --tw-prose-bullets: theme('colors.stone.400');
+  --tw-prose-hr: theme('colors.stone.200');
+  --tw-prose-quotes: theme('colors.stone.500');
   --tw-prose-quote-borders: theme('colors.primary.300');
-  --tw-prose-captions: theme('colors.secondary.500');
+  --tw-prose-captions: theme('colors.stone.500');
   --tw-prose-code: theme('colors.primary.700');
-  --tw-prose-pre-code: theme('colors.secondary.200');
-  --tw-prose-pre-bg: theme('colors.secondary.900');
-  --tw-prose-th-borders: theme('colors.secondary.300');
-  --tw-prose-td-borders: theme('colors.secondary.200');
+  --tw-prose-pre-code: theme('colors.stone.200');
+  --tw-prose-pre-bg: theme('colors.stone.900');
+  --tw-prose-th-borders: theme('colors.stone.300');
+  --tw-prose-td-borders: theme('colors.stone.200');
 }
 
 .prose a {
@@ -56,23 +57,18 @@ h1, h2, h3, h4, h5, h6 {
   color: theme('colors.primary.700');
 }
 
-/* Custom scrollbar */
+/* Custom Scrollbar for "Premium" feel */
 ::-webkit-scrollbar {
   width: 8px;
-  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: theme('colors.secondary.100');
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: theme('colors.secondary.300');
+  background: #D6D3D1;
   border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: theme('colors.secondary.400');
 }
 
 /* Line clamp utilities */

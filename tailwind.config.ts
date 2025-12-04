@@ -10,47 +10,36 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Primary - soft pink/mauve for nail niche
+        // "Nude & Rose" - The Brand Core (Sophisticated, not neon)
         primary: {
-          50: '#fdf2f4',
-          100: '#fce7ea',
-          200: '#f9d0d9',
-          300: '#f4aabb',
-          400: '#ec7a96',
-          500: '#df5074',
-          600: '#cb305a',
-          700: '#ab2349',
-          800: '#8f2041',
-          900: '#7a1f3c',
-          950: '#440c1d',
+          50: '#FDF2F4',
+          100: '#FCE7EA',
+          200: '#F8D0D9',
+          300: '#F2AAB7',
+          400: '#E87D92',
+          500: '#D64E69', // Main Brand Pink
+          600: '#BD324F',
+          700: '#9E243D',
+          800: '#851F34',
+          900: '#701D2E',
         },
-        // Secondary - warm neutral
-        secondary: {
-          50: '#f9f7f5',
-          100: '#f2ede8',
-          200: '#e4d9ce',
-          300: '#d2c0ad',
-          400: '#bea28a',
-          500: '#b08c70',
-          600: '#a37a63',
-          700: '#886453',
-          800: '#6f5347',
-          900: '#5b463c',
-          950: '#30231e',
+        // "Stone" - The Luxury Neutral (Replaces standard grays)
+        stone: {
+          50: '#FAFAF9', // Main Background
+          100: '#F5F5F4', // Secondary Background
+          200: '#E7E5E4', // Borders
+          300: '#D6D3D1',
+          400: '#A8A29E',
+          500: '#78716C', // Body Text
+          600: '#57534E',
+          700: '#44403C', // Headings
+          800: '#292524',
+          900: '#1C1917', // Dark Accents
         },
-        // Accent - teal for trust/professional
+        // "Sage" - The Organic Accent
         accent: {
-          50: '#effefa',
-          100: '#c8fff1',
-          200: '#91fee4',
-          300: '#52f6d4',
-          400: '#1ee4bf',
-          500: '#05c8a6',
-          600: '#01a188',
-          700: '#06806e',
-          800: '#0a6559',
-          900: '#0d534a',
-          950: '#00332e',
+          500: '#5F8D78', // Muted Sage Green
+          600: '#4A7260',
         },
         background: "var(--background)",
         foreground: "var(--foreground)",
