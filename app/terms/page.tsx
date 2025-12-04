@@ -182,10 +182,11 @@ export default function TermsPage() {
             with applicable laws, without regard to conflict of law principles.
           </p>
 
-          <h2>Contact</h2>
+          <h2>Questions About These Terms</h2>
           <p>
-            If you have questions about these Terms of Use, please contact us at:{' '}
-            <a href="mailto:hello@buildergelnails.com">hello@buildergelnails.com</a>
+            If you have questions about these Terms of Use, please review our{' '}
+            <Link href="/about">About page</Link> for more information about our
+            editorial standards and policies.
           </p>
         </div>
       </div>

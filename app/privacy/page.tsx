@@ -149,13 +149,11 @@ export default function PrivacyPage() {
             any changes on this page and update the &quot;Last updated&quot; date.
           </p>
 
-          <h2>Contact Us</h2>
+          <h2>Questions About This Policy</h2>
           <p>
-            If you have questions about this Privacy Policy, please contact us
-            at:{' '}
-            <a href="mailto:privacy@buildergelnails.com">
-              privacy@buildergelnails.com
-            </a>
+            If you have questions about this Privacy Policy, please review our{' '}
+            <Link href="/about">About page</Link> for more information about how
+            we handle data and privacy.
           </p>
         </div>
       </div>

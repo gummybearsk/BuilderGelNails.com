@@ -212,29 +212,30 @@ export default async function BlogPage() {
         </div>
       </section>
 
-      {/* Newsletter CTA */}
+      {/* Explore More CTA */}
       <section className="py-12 bg-secondary-900 text-white">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Stay in the Loop
+            Explore More Builder Gel Content
           </h2>
           <p className="text-secondary-300 mb-8 max-w-xl mx-auto">
-            New articles, product reviews, and tips delivered to your inbox.
-            No spam—just nail goodness.
+            Discover step-by-step guides, troubleshooting tips, and honest
+            product reviews to help you master builder gel nails.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-full text-secondary-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
-            />
-            <button className="px-6 py-3 bg-primary-600 text-white font-semibold rounded-full hover:bg-primary-700 transition-colors">
-              Subscribe
-            </button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link
+              href="/guides"
+              className="px-6 py-3 bg-primary-600 text-white font-semibold rounded-full hover:bg-primary-700 transition-colors"
+            >
+              Browse Guides
+            </Link>
+            <Link
+              href="/products"
+              className="px-6 py-3 bg-white text-secondary-900 font-semibold rounded-full hover:bg-secondary-100 transition-colors"
+            >
+              View Products
+            </Link>
           </div>
-          <p className="text-xs text-secondary-500 mt-4">
-            Newsletter coming soon. Check back later!
-          </p>
         </div>
       </section>
     </div>

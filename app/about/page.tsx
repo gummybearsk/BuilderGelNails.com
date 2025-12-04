@@ -237,22 +237,22 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Contact CTA */}
+      {/* Trust Section */}
       <section className="py-12 md:py-16 bg-primary-600 text-white">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Questions or Feedback?
+            Transparent & Trustworthy
           </h2>
           <p className="text-primary-100 mb-6 max-w-xl mx-auto">
-            We love hearing from readers. Whether you have a question about
-            builder gel, want to suggest a topic, or noticed something that
-            needs correction, we&apos;re here to help.
+            We're committed to providing accurate, helpful information about
+            builder gel. All reviews are based on real testing, and we clearly
+            disclose affiliate relationships.
           </p>
           <Link
-            href="mailto:hello@buildergelnails.com"
+            href="/"
             className="inline-block px-6 py-3 bg-white text-primary-600 font-semibold rounded-full hover:bg-primary-50 transition-colors"
           >
-            Contact Us
+            Explore Guides
           </Link>
         </div>
       </section>
