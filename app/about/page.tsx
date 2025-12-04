@@ -244,7 +244,7 @@ export default function AboutPage() {
             Transparent & Trustworthy
           </h2>
           <p className="text-primary-100 mb-6 max-w-xl mx-auto">
-            We're committed to providing accurate, helpful information about
+            We&apos;re committed to providing accurate, helpful information about
             builder gel. All reviews are based on real testing, and we clearly
             disclose affiliate relationships.
           </p>
