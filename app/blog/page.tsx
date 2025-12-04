@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Breadcrumbs } from '@/components';
 import { getAllPosts } from '@/lib/posts';
 
@@ -72,6 +73,12 @@ export default async function BlogPage() {
             >
               Products
             </Link>
+            <Link
+              href="/comparisons"
+              className="px-4 py-2 bg-secondary-100 text-secondary-700 rounded-full text-sm font-medium hover:bg-secondary-200 transition-colors"
+            >
+              Comparisons
+            </Link>
           </div>
         </div>
       </section>
@@ -87,10 +94,11 @@ export default async function BlogPage() {
                   <div className="grid md:grid-cols-2 gap-0">
                     <div className="aspect-video md:aspect-auto bg-secondary-100 relative">
                       {posts[0].coverImage ? (
-                        <img
+                        <Image
                           src={posts[0].coverImage}
                           alt={posts[0].title}
-                          className="w-full h-full object-cover"
+                          fill
+                          className="object-cover"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center">
@@ -135,10 +143,11 @@ export default async function BlogPage() {
                   >
                     <div className="aspect-video bg-secondary-100 relative">
                       {post.coverImage ? (
-                        <img
+                        <Image
                           src={post.coverImage}
                           alt={post.title}
-                          className="w-full h-full object-cover"
+                          fill
+                          className="object-cover"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center">

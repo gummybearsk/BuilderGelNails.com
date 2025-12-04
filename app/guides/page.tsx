@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Breadcrumbs } from '@/components';
 import { getPostsByCategory } from '@/lib/posts';
 
@@ -49,10 +50,11 @@ export default async function GuidesPage() {
                 >
                   <div className="aspect-video bg-secondary-100 relative">
                     {post.coverImage ? (
-                      <img
+                      <Image
                         src={post.coverImage}
                         alt={post.title}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
