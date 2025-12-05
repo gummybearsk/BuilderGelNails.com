@@ -288,11 +288,6 @@ export default async function HomePage() {
                 key={product.id}
                 className="bg-white border border-secondary-200 rounded-lg p-4 hover:shadow-md transition-shadow"
               >
-                <div className="aspect-square bg-secondary-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-12 h-12 text-secondary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                  </svg>
-                </div>
                 <span className="text-xs font-medium text-primary-600 uppercase">{product.brand}</span>
                 <h3 className="mt-1 text-sm font-semibold text-secondary-900 line-clamp-2">
                   {product.name}
@@ -333,7 +328,6 @@ export default async function HomePage() {
                   href={getPostPath(post)}
                   className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
                 >
-                  <div className="aspect-video bg-secondary-200"></div>
                   <div className="p-6">
                     <span className="text-xs font-medium text-primary-600 uppercase">
                       {post.category}
